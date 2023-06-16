@@ -12,7 +12,7 @@ typedef struct {
 
 Scanner scanner;
 
-void initScaner(const char* source) {
+void initScanner(const char* source) {
   scanner.start = source;
   scanner.current = source;
   scanner.line = 1;
@@ -177,7 +177,7 @@ Token scanToken() {
   scanner.start = scanner.current;
   if (isAtEnd()) return makeToken(TOKEN_EOF);
   char c = advance();
-  if (isAppha(c)) return identifier();
+  if (isAlpha(c)) return identifier();
   if (isDigit(c)) return number();
 
   switch (c) {
