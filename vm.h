@@ -11,6 +11,7 @@ typedef struct {
   uint8_t* ip;
   Value stack[STACK_MAX];
   Value* stackTop;    /* always points just past the last item */
+  Obj* objects;       /* VM stores a pointer to the head of the linked list */
 } VM;
 
 typedef enum {
@@ -18,6 +19,8 @@ typedef enum {
   INTERPRET_COMPILE_ERROR,
   INTERPRET_RUNTIME_ERROR
 } InterpretResult;
+
+extern VM vm;
 
 void initVM();
 void freeVM();
